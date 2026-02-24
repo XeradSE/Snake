@@ -6,11 +6,8 @@
 
 int main()
 {
-    const int screenWidth = 1280;
-    const int screenHeight = 720;
-    const int cellSize = 15;
-    const int rows = screenHeight/cellSize;
-    const int cols = screenWidth/cellSize;
+    const int screenWidth = 600;
+    const int screenHeight = 600;
 
     InitWindow(screenWidth, screenHeight, "Snake");
 

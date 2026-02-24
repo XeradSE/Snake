@@ -28,7 +28,7 @@ void Snake::setDirection(Vector2 direction) {
 
 bool Snake::checkSelfCollision() {
 
-    for (Vector2 v : snake_body) {
+    for (const Vector2& v : snake_body) {
         if (snake_body.front().x == v.x && snake_body.front().y == v.y) {
             return true;
         }
@@ -40,6 +40,10 @@ bool Snake::checkSelfCollision() {
 
 void Snake::draw() {
 
-    
+    for (const Vector2& v : snake_body) {
+        DrawRectangle(v.x, v.y, cell_size, cell_size, GREEN);
+    }
+
+    DrawRectangle(snake_body.front().x, snake_body.front().y, cell_size, cell_size, DARKGREEN);
 
 }

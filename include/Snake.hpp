@@ -3,9 +3,9 @@
 
 class Snake {
 
+    const int cell_size = 60;
     std::deque<Vector2> snake_body;
     Vector2 direction;
-    int cell_size = 1;
 
 public:
 
@@ -14,6 +14,6 @@ public:
     void setDirection(Vector2 direction);
     bool checkSelfCollision();
     void draw();
-    Vector2 getHead() {return snake_body.front();};
+    Vector2 getHead() const {return snake_body.front();};
 
 };
