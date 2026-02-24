@@ -2,7 +2,7 @@
 // Created by Kylian Betuel on 24/02/2026.
 //
 
-#include "raylib.h"
+#include "./../include/Snake.hpp"
 
 int main()
 {
