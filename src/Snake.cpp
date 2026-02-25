@@ -1,6 +1,12 @@
 #include "./../include/Snake.hpp"
 #include "raylib.h"
 
+Snake::Snake() {
+
+    snake_body.push_front(Vector2{1, 1});
+
+}
+
 void Snake::move() {
 
     Vector2 new_head = {snake_body.front().x + direction.x, snake_body.front().y + direction.y};
@@ -41,7 +47,7 @@ bool Snake::checkSelfCollision() {
 void Snake::draw() {
 
     for (const Vector2& v : snake_body) {
-        DrawRectangle(v.x, v.y, cell_size, cell_size, GREEN);
+        DrawRectangle(v.x*cell_size, v.y*cell_size, cell_size, cell_size, GREEN);
     }
 
     DrawRectangle(snake_body.front().x, snake_body.front().y, cell_size, cell_size, DARKGREEN);

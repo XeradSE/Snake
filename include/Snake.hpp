@@ -1,3 +1,5 @@
+#pragma once
+
 #include "raylib.h"
 #include <deque>
 
@@ -9,11 +11,14 @@ class Snake {
 
 public:
 
+    Snake();
+
     void move();
     void grow();
     void setDirection(Vector2 direction);
     bool checkSelfCollision();
     void draw();
     Vector2 getHead() const {return snake_body.front();};
+    std::deque<Vector2> getSnakeBody() const {return snake_body;};
 
 };

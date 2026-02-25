@@ -2,7 +2,8 @@
 // Created by Kylian Betuel on 24/02/2026.
 //
 
-#include "./../include/Snake.hpp"
+#include "./../include/Game.hpp"
+#include "raylib.h"
 
 int main()
 {
@@ -13,15 +14,34 @@ int main()
 
     SetTargetFPS(60);
 
+    Game game;
+
+    Vector2 direction;
+
     while (!WindowShouldClose()) {
 
+        if (IsKeyPressed(KEY_RIGHT)) {
+            direction = {1, 0};
+        }
+
+        if (IsKeyPressed(KEY_LEFT)) {
+            direction = {-1, 0};
+        }
+
+        if (IsKeyPressed(KEY_UP)) {
+            direction = {0, -1};
+        }
+
+        if (IsKeyPressed(KEY_DOWN)) {
+            direction = {0, 1};
+        }
+
+        game.draw();
+        game.update(direction);
         BeginDrawing();
-        ClearBackground(RAYWHITE);
-
-        DrawText("Click cells to change color", 10, 10, 20, DARKGRAY);
-        DrawText("Press SPACE to pause", 10, 35, 20, DARKGRAY);
-
+        ClearBackground(BLACK);
         EndDrawing();
+
     }
 
     CloseWindow();

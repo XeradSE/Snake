@@ -59,6 +59,26 @@ build CMakeFiles/Snake.dir/src/main.cpp.o: CXX_COMPILER__Snake_unscanned_Debug /
   OBJECT_FILE_DIR = CMakeFiles/Snake.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/Snake.dir
 
+build CMakeFiles/Snake.dir/src/Snake.cpp.o: CXX_COMPILER__Snake_unscanned_Debug /home/xerad/Documents/ProjetsProgrammation/C++/Snake/src/Snake.cpp || cmake_object_order_depends_target_Snake
+  CONFIG = Debug
+  DEFINES = -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP
+  DEP_FILE = CMakeFiles/Snake.dir/src/Snake.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/_deps/raylib-src/src -I/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/_deps/raylib-src/src/external/glfw/include
+  OBJECT_DIR = CMakeFiles/Snake.dir
+  OBJECT_FILE_DIR = CMakeFiles/Snake.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/Snake.dir
+
+build CMakeFiles/Snake.dir/src/Game.cpp.o: CXX_COMPILER__Snake_unscanned_Debug /home/xerad/Documents/ProjetsProgrammation/C++/Snake/src/Game.cpp || cmake_object_order_depends_target_Snake
+  CONFIG = Debug
+  DEFINES = -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP
+  DEP_FILE = CMakeFiles/Snake.dir/src/Game.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/_deps/raylib-src/src -I/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/_deps/raylib-src/src/external/glfw/include
+  OBJECT_DIR = CMakeFiles/Snake.dir
+  OBJECT_FILE_DIR = CMakeFiles/Snake.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/Snake.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Snake
@@ -67,7 +87,7 @@ build CMakeFiles/Snake.dir/src/main.cpp.o: CXX_COMPILER__Snake_unscanned_Debug /
 #############################################
 # Link the executable Snake
 
-build Snake: CXX_EXECUTABLE_LINKER__Snake_Debug CMakeFiles/Snake.dir/src/main.cpp.o | _deps/raylib-build/raylib/libraylib.a /usr/lib/libOpenGL.so /usr/lib/libGLX.so /usr/lib/libGLU.so /usr/lib/librt.a /usr/lib/libm.so || _deps/raylib-build/raylib/external/glfw/src/glfw _deps/raylib-build/raylib/libraylib.a
+build Snake: CXX_EXECUTABLE_LINKER__Snake_Debug CMakeFiles/Snake.dir/src/main.cpp.o CMakeFiles/Snake.dir/src/Snake.cpp.o CMakeFiles/Snake.dir/src/Game.cpp.o | _deps/raylib-build/raylib/libraylib.a /usr/lib/libOpenGL.so /usr/lib/libGLX.so /usr/lib/libGLU.so /usr/lib/librt.a /usr/lib/libm.so || _deps/raylib-build/raylib/external/glfw/src/glfw _deps/raylib-build/raylib/libraylib.a
   CONFIG = Debug
   DEP_FILE = CMakeFiles/Snake.dir/link.d
   FLAGS = -g

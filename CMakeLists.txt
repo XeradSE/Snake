@@ -16,6 +16,9 @@ if (NOT raylib_FOUND)
     FetchContent_MakeAvailable(raylib)
 endif ()
 
-add_executable(Snake ./src/main.cpp)
+add_executable(Snake ./src/main.cpp
+                     ./src/Snake.cpp
+                     ./src/Game.cpp
+)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)

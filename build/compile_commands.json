@@ -7,6 +7,18 @@
 },
 {
   "directory": "/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build",
+  "command": "/usr/bin/clang++ -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/_deps/raylib-src/src -I/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/_deps/raylib-src/src/external/glfw/include -g -std=gnu++17 -o CMakeFiles/Snake.dir/src/Snake.cpp.o -c /home/xerad/Documents/ProjetsProgrammation/C++/Snake/src/Snake.cpp",
+  "file": "/home/xerad/Documents/ProjetsProgrammation/C++/Snake/src/Snake.cpp",
+  "output": "/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/CMakeFiles/Snake.dir/src/Snake.cpp.o"
+},
+{
+  "directory": "/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build",
+  "command": "/usr/bin/clang++ -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/_deps/raylib-src/src -I/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/_deps/raylib-src/src/external/glfw/include -g -std=gnu++17 -o CMakeFiles/Snake.dir/src/Game.cpp.o -c /home/xerad/Documents/ProjetsProgrammation/C++/Snake/src/Game.cpp",
+  "file": "/home/xerad/Documents/ProjetsProgrammation/C++/Snake/src/Game.cpp",
+  "output": "/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/CMakeFiles/Snake.dir/src/Game.cpp.o"
+},
+{
+  "directory": "/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build",
   "command": "/usr/bin/clang -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/_deps/raylib-src/src -isystem /home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o _deps/raylib-build/raylib/CMakeFiles/raylib.dir/raudio.c.o -c /home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/_deps/raylib-src/src/raudio.c",
   "file": "/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/_deps/raylib-src/src/raudio.c",
   "output": "/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/_deps/raylib-build/raylib/CMakeFiles/raylib.dir/raudio.c.o"
