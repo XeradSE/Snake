@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Snake.hpp"
-#include "raylib.h"
 #include <random>
 
 class Game {
@@ -15,6 +14,7 @@ class Game {
     int score;
     bool is_running = true;
     std::mt19937 rng{std::random_device{}()};
+    float timer = 0.0f;
 
 public:
 

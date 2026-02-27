@@ -6,31 +6,23 @@ void Game::update(Vector2 direction) {
 
     checkCollisions();
 
-    is_running = true;
-
-    int timer = 0;
-
     if (is_running) {
 
-        timer += GetFrameTime();
-        std::cout << timer << std::endl;
-        if (timer >= move_interval) {
-            timer = 0;
-            snake.move();
-            checkCollisions();
-            std::cout << "print" << std::endl;
-        }
+        float move_interval = 0.15; //0.16s -> 60fps
 
         snake.setDirection(direction);
-        snake.draw();
-        if (snake.getHead().x == nourriture.x && snake.getHead().y == nourriture.y) {
-            snake.grow();
-            spawnfood();
-        } else {
-            snake.move();
+
+        timer += GetFrameTime();
+        if (timer >= move_interval) {
+            timer = 0;
+            if (snake.getHead().x == nourriture.x && snake.getHead().y == nourriture.y) {
+                snake.grow();
+                spawnfood();
+            } else {
+                snake.move();
+            }
         }
     }
-
 }
 
 void Game::draw() {
@@ -43,19 +35,27 @@ void Game::draw() {
 
     DrawRectangle(nourriture.x*cell_size, nourriture.y*cell_size, cell_size, cell_size, RED);
 
+    std::cout << "Po< x: " << nourriture.x*cell_size << " Pos y : " << nourriture.y*cell_size << std::endl;
+
+    snake.draw();
+
 }
 
 void Game::spawnfood() {
 
-    std::uniform_int_distribution<int> dist(nb_cell_height, nb_cell_width);
-    Vector2 temp; 
+    std::uniform_int_distribution<int> dist_x(0, nb_cell_width - 1);
+    std::uniform_int_distribution<int> dist_y(0, nb_cell_height - 1);
+
+    Vector2 temp;
     bool cell_empty = false;
 
     while (!cell_empty) {
-        temp = {static_cast<float>(dist(rng)), static_cast<float>(dist(rng))};
+        cell_empty = true;
+        temp = {static_cast<float>(dist_x(rng)), static_cast<float>(dist_y(rng))};
         for (const Vector2& v : snake.getSnakeBody()) {
-            if (v.x != temp.x && v.y != temp.y) {
-                cell_empty = true;
+            if (v.x == temp.x && v.y == temp.y) {
+                cell_empty = false;
+                break;
             }
         }
     }
@@ -73,11 +73,10 @@ void Game::checkCollisions() {
     }
 
     if (is_running) {
-        if (snake.getHead().x == nb_cell_height || snake.getHead().y == nb_cell_width) {
+        if (snake.getHead().x >= nb_cell_height || snake.getHead().y >= nb_cell_width || snake.getHead().x < 0 || snake.getHead().y < 0) {
             is_running = false;
         }
     }
-
 }
 
 void Game::reset() {
