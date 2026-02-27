@@ -4,7 +4,7 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
       - "CMakeLists.txt:16 (project)"
     mode: "program"
     variable: "CMAKE_UNAME"
@@ -20,39 +20,30 @@ events:
     names:
       - "uname"
     candidate_directories:
-      - "/home/xerad/.cargo/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
+      - "/app/bin/"
       - "/usr/bin/"
-      - "/opt/cuda/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
+      - "/home/xerad/.var/app/com.vscodium.codium/data/node/bin/"
+      - "/home/xerad/.var/app/com.vscodium.codium/data/cargo/bin/"
+      - "/home/xerad/.var/app/com.vscodium.codium/data/python/bin/"
       - "/bin/"
+      - "/usr/local/bin/"
     searched_directories:
-      - "/home/xerad/.cargo/bin/uname"
-      - "/usr/local/sbin/uname"
-      - "/usr/local/bin/uname"
+      - "/app/bin/uname"
     found: "/usr/bin/uname"
     search_context:
       ENV{PATH}:
-        - "/home/xerad/.cargo/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
+        - "/app/bin"
+        - "/app/bin"
+        - "/app/bin"
         - "/usr/bin"
-        - "/opt/cuda/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
+        - "/home/xerad/.var/app/com.vscodium.codium/data/node/bin"
+        - "/home/xerad/.var/app/com.vscodium.codium/data/cargo/bin"
+        - "/home/xerad/.var/app/com.vscodium.codium/data/python/bin"
   -
     kind: "message-v1"
     backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:212 (message)"
       - "CMakeLists.txt:16 (project)"
     message: |
-      The system is: Linux - 6.18.9-zen1-2-zen - x86_64
+      The system is: Linux - 6.18.9-arch1-2 - x86_64
 ...

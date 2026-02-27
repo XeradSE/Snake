@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/home/xerad/Documents/ProjetsProgrammation/C++/Snake/build/_deps/raylib-subbuild/cmake_install.cmake"
+		"/home/xerad/Documents/ProjetsProg/Snake/Snake/build/_deps/raylib-subbuild/cmake_install.cmake"
 	],
 	"Parallel" : false
 }
