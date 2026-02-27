@@ -1,3 +1,0 @@
-/home/xerad/Documents/ProjetsProg/Snake/Snake/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate.dir
-/home/xerad/Documents/ProjetsProg/Snake/Snake/build/_deps/raylib-subbuild/CMakeFiles/edit_cache.dir
-/home/xerad/Documents/ProjetsProg/Snake/Snake/build/_deps/raylib-subbuild/CMakeFiles/rebuild_cache.dir
