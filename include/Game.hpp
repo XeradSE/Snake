@@ -2,6 +2,7 @@
 
 #include "Snake.hpp"
 #include <random>
+#include "Menu.hpp"
 
 class Game {
 
@@ -11,10 +12,11 @@ class Game {
     Snake snake;
     Vector2 nourriture;
     int move_interval = 1;
-    int score;
+    int score = 0;
     bool is_running = true;
     std::mt19937 rng{std::random_device{}()};
     float timer = 0.0f;
+    Menu menu;
 
 public:
 
@@ -23,5 +25,7 @@ public:
     void spawnfood();
     void checkCollisions();
     void reset();
+
+    Menu& getMenu() {return menu;};
 
 };

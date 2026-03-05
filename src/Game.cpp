@@ -8,7 +8,7 @@ void Game::update(Vector2 direction) {
 
     if (is_running) {
 
-        float move_interval = 0.15; //0.16s -> 60fps
+        float move_interval = 0.16; //0.16s -> 60fps
 
         snake.setDirection(direction);
 
@@ -22,22 +22,29 @@ void Game::update(Vector2 direction) {
                 snake.move();
             }
         }
+    } else {
+        menu.setGameOver(true);
     }
 }
 
 void Game::draw() {
 
-    for (int i = 0; i < nb_cell_width; i++) {
-        for (int j = 0; j < nb_cell_height; j++) {
-            DrawRectangle(i*cell_size, j*cell_size, cell_size, cell_size, YELLOW);
+    if (menu.getGameOver()) {
+        menu.drawGameOver(score);
+        if (menu.handleInput()) {
+            menu.setMainMenu(false);
         }
+    } else {
+        for (int i = 0; i < nb_cell_width; i++) {
+            for (int j = 0; j < nb_cell_height; j++) {
+                DrawRectangle(i*cell_size, j*cell_size, cell_size, cell_size, YELLOW);
+            }
+        }
+
+        DrawRectangle(nourriture.x*cell_size, nourriture.y*cell_size, cell_size, cell_size, RED);
+
+        snake.draw();
     }
-
-    DrawRectangle(nourriture.x*cell_size, nourriture.y*cell_size, cell_size, cell_size, RED);
-
-    std::cout << "Po< x: " << nourriture.x*cell_size << " Pos y : " << nourriture.y*cell_size << std::endl;
-
-    snake.draw();
 
 }
 

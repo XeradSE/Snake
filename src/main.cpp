@@ -3,6 +3,7 @@
 //
 
 #include "./../include/Game.hpp"
+#include <iostream>
 
 int main()
 {
@@ -15,30 +16,40 @@ int main()
 
     Game game;
 
-    Vector2 direction;
+    Vector2 direction = {0, 0}; // Initialisation par défaut dans aucune direction
 
     while (!WindowShouldClose()) {
 
-        if (IsKeyPressed(KEY_RIGHT)) {
-            direction = {1, 0};
-        }
-
-        if (IsKeyPressed(KEY_LEFT)) {
-            direction = {-1, 0};
-        }
-
-        if (IsKeyPressed(KEY_UP)) {
-            direction = {0, -1};
-        }
-
-        if (IsKeyPressed(KEY_DOWN)) {
-            direction = {0, 1};
-        }
-
-        game.draw();
-        game.update(direction);
         BeginDrawing();
         ClearBackground(BLACK);
+        
+        if (game.getMenu().getMainMenu()) {
+            game.getMenu().drawMainMenu();
+            if (game.getMenu().handleInput()) {
+                game.getMenu().setMainMenu(false);
+            }
+        } else {
+
+            if (IsKeyPressed(KEY_RIGHT)) {
+                direction = {1, 0};
+            }
+
+            if (IsKeyPressed(KEY_LEFT)) {
+                direction = {-1, 0};
+            }
+
+            if (IsKeyPressed(KEY_UP)) {
+                direction = {0, -1};
+            }
+
+            if (IsKeyPressed(KEY_DOWN)) {
+                direction = {0, 1};
+            }
+
+            game.update(direction);
+            game.draw();
+        }
+
         EndDrawing();
 
     }
