@@ -11,8 +11,8 @@ A classic Snake game built in C++ with Raylib.
 ## Features
 
 - Classic Snake gameplay
-- Score tracking
-- High score system with local save
+- Score tracking (Coming soon)
+- High score system with local save (Coming soon)
 - Main menu and game over screen
 - Smooth controls
 
