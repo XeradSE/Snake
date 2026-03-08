@@ -8,20 +8,20 @@
 #include <string>
 
 void Menu::drawMainMenu() {
-    int x = MeasureText("Snake", 200);
-    DrawText("Snake", 300 - x, 100, 200, DARKGREEN);
-    x = MeasureText("Appuie sur Entrée pour jouer", 100);
-    DrawText("Appuie sur Entrée pour jouer", 300 - x, 100, 100, DARKGREEN);
+    int x = MeasureText("Snake", 100);
+    DrawText("Snake", 500 - x, 100, 100, DARKGREEN);
+    x = MeasureText("Appuie sur Entrée pour jouer", 25);
+    DrawText("Appuie sur Entrée pour jouer", 600 - x, 300, 25, DARKGREEN);
 }
 
 void Menu::drawGameOver(int score) {
-    int x = MeasureText("GAME OVER", 200);
-    DrawText("GAME OVER", 300 - x, 100, 200, DARKGREEN);
+    int x = MeasureText("GAME OVER", 90);
+    DrawText("GAME OVER", 600 - x, 100, 90, DARKGREEN);
     const char* score_string = "Score : " + static_cast<char>(score);
-    x = MeasureText(score_string, 100);
-    DrawText(score_string, 300 - x, 100, 100, DARKGREEN);
-    x = MeasureText("Appuie sur Entrée pour rejouer", 100);
-    DrawText("Appuie sur Entrée pour rejouer", 300 - x, 100, 100, DARKGREEN);
+    x = MeasureText(score_string, 50);
+    DrawText(score_string, 800 - x, 300, 50, DARKGREEN);
+    x = MeasureText("Appuie sur Entrée pour rejouer", 25);
+    DrawText("Appuie sur Entrée pour rejouer", 600 - x, 400, 25, DARKGREEN);
 }
 
 bool Menu::handleInput() {

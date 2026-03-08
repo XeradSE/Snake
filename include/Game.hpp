@@ -27,5 +27,7 @@ public:
     void reset();
 
     Menu& getMenu() {return menu;};
+    int getScore() {return score;};
+    void setIsRunning(bool is_running) {this->is_running = is_running;};
 
 };

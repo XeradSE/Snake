@@ -1,5 +1,6 @@
 #include "./../include/Snake.hpp"
 #include "raylib.h"
+#include <iostream>
 
 Snake::Snake() {
 
@@ -48,5 +49,14 @@ void Snake::draw() {
         DrawRectangle(v.x*cell_size, v.y*cell_size, cell_size, cell_size, GREEN);
     }
     DrawRectangle(snake_body.front().x*cell_size, snake_body.front().y*cell_size, cell_size, cell_size, DARKGREEN);
+
+}
+
+void Snake::reset() {
+
+    snake_body.clear();
+    snake_body.push_front(Vector2{1, 1});
+
+    setHead(1, 1);
 
 }

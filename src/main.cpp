@@ -28,6 +28,12 @@ int main()
             if (game.getMenu().handleInput()) {
                 game.getMenu().setMainMenu(false);
             }
+        } else if (game.getMenu().getGameOver()) {
+            game.getMenu().drawGameOver(game.getScore());
+            if (game.getMenu().handleInput()) {
+                game.getMenu().setGameOver(false);
+                game.setIsRunning(true);
+            } 
         } else {
 
             if (IsKeyPressed(KEY_RIGHT)) {

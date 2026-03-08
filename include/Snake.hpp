@@ -19,6 +19,8 @@ public:
     bool checkSelfCollision();
     void draw();
     Vector2 getHead() const {return snake_body.front();};
+    void setHead(float pos_x, float pos_y) {snake_body.front() = Vector2{pos_x, pos_y};};
     std::deque<Vector2> getSnakeBody() const {return snake_body;};
+    void reset();
 
 };

@@ -1,6 +1,5 @@
 #include "./../include/Game.hpp"
 #include "raylib.h"
-#include <iostream>
 
 void Game::update(Vector2 direction) {
 
@@ -24,27 +23,21 @@ void Game::update(Vector2 direction) {
         }
     } else {
         menu.setGameOver(true);
+        reset();
     }
 }
 
 void Game::draw() {
 
-    if (menu.getGameOver()) {
-        menu.drawGameOver(score);
-        if (menu.handleInput()) {
-            menu.setMainMenu(false);
+    for (int i = 0; i < nb_cell_width; i++) {
+        for (int j = 0; j < nb_cell_height; j++) {
+            DrawRectangle(i*cell_size, j*cell_size, cell_size, cell_size, YELLOW);
         }
-    } else {
-        for (int i = 0; i < nb_cell_width; i++) {
-            for (int j = 0; j < nb_cell_height; j++) {
-                DrawRectangle(i*cell_size, j*cell_size, cell_size, cell_size, YELLOW);
-            }
-        }
-
-        DrawRectangle(nourriture.x*cell_size, nourriture.y*cell_size, cell_size, cell_size, RED);
-
-        snake.draw();
     }
+
+    DrawRectangle(nourriture.x*cell_size, nourriture.y*cell_size, cell_size, cell_size, RED);
+
+    snake.draw();
 
 }
 
@@ -87,5 +80,7 @@ void Game::checkCollisions() {
 }
 
 void Game::reset() {
-
+    score = 0;
+    snake.reset();
+    snake.setDirection(Vector2{0, 0});
 }
