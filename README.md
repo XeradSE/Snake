@@ -8,7 +8,6 @@ A classic Snake game built in C++ with Raylib.
 
 <img width="882" height="881" alt="Snake" src="https://github.com/user-attachments/assets/44e2d7af-a1d6-4509-8226-573c873a1206" />
 
-
 ## Features
 
 - Classic Snake gameplay
