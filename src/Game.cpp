@@ -1,5 +1,4 @@
 #include "./../include/Game.hpp"
-#include "raylib.h"
 
 void Game::update(Vector2 direction) {
 
@@ -16,6 +15,7 @@ void Game::update(Vector2 direction) {
             timer = 0;
             if (snake.getHead().x == nourriture.x && snake.getHead().y == nourriture.y) {
                 snake.grow();
+                score ++;
                 spawnfood();
             } else {
                 snake.move();
@@ -23,7 +23,6 @@ void Game::update(Vector2 direction) {
         }
     } else {
         menu.setGameOver(true);
-        reset();
     }
 }
 

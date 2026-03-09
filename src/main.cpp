@@ -3,7 +3,6 @@
 //
 
 #include "./../include/Game.hpp"
-#include <iostream>
 
 int main()
 {
@@ -31,6 +30,7 @@ int main()
         } else if (game.getMenu().getGameOver()) {
             game.getMenu().drawGameOver(game.getScore());
             if (game.getMenu().handleInput()) {
+                game.reset();
                 game.getMenu().setGameOver(false);
                 game.setIsRunning(true);
             } 
