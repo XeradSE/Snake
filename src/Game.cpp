@@ -1,33 +1,40 @@
 #include "./../include/Game.hpp"
 #include "./../include/ScoreManager.hpp"
+#include <stdexcept>
+#include <iostream>
 
 void Game::update(Vector2 direction) {
 
-    checkCollisions();
+    try {
+        checkCollisions();
 
-    if (is_running) {
+        if (is_running) {
 
-        float move_interval = 0.16; //0.16s -> 60fps
+            float move_interval = 0.16; //0.16s -> 60fps
 
-        snake.setDirection(direction);
+            snake.setDirection(direction);
 
-        timer += GetFrameTime();
-        if (timer >= move_interval) {
-            timer = 0;
-            if (snake.getHead().x == nourriture.x && snake.getHead().y == nourriture.y) {
-                snake.grow();
-                score++;
-                if (score > ScoreManager::loadHighScore()) {
-                    ScoreManager::saveHighScore(score);
+            timer += GetFrameTime();
+            if (timer >= move_interval) {
+                timer = 0;
+                if (snake.getHead().x == nourriture.x && snake.getHead().y == nourriture.y) {
+                    snake.grow();
+                    score++;
+                    if (score > ScoreManager::loadHighScore()) {
+                        ScoreManager::saveHighScore(score);
+                    }
+                    spawnfood();
+                } else {
+                    snake.move();
                 }
-                spawnfood();
-            } else {
-                snake.move();
             }
+        } else {
+            menu.setGameOver(true);
         }
-    } else {
-        menu.setGameOver(true);
+    } catch (const std::runtime_error& e) {
+        std::cerr << e.what() << std::endl;
     }
+    
 }
 
 void Game::draw() {

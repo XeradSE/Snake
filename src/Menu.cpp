@@ -4,6 +4,7 @@
 
 #include "./../include/Menu.hpp"
 #include "raylib.h"
+#include "./../include/ScoreManager.hpp"
 
 void Menu::drawMainMenu() {
     int x = MeasureText("Snake", 100);
@@ -17,6 +18,8 @@ void Menu::drawGameOver(int score) {
     DrawText("GAME OVER", 600 - x, 100, 90, DARKGREEN);
     x = MeasureText("Score :", 50);
     DrawText(TextFormat("Score : %i", score), 300 - x, 300, 50, DARKGREEN);
+    x = MeasureText("High Score : ", 50);
+    DrawText(TextFormat("High Score : %i", ScoreManager::loadHighScore()), 400 - x, 350, 50, DARKGREEN);
     x = MeasureText("Appuie sur Entrée pour rejouer", 25);
     DrawText("Appuie sur Entrée pour rejouer", 600 - x, 400, 25, DARKGREEN);
 }
