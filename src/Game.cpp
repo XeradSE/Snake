@@ -1,4 +1,5 @@
 #include "./../include/Game.hpp"
+#include "./../include/ScoreManager.hpp"
 
 void Game::update(Vector2 direction) {
 
@@ -15,7 +16,10 @@ void Game::update(Vector2 direction) {
             timer = 0;
             if (snake.getHead().x == nourriture.x && snake.getHead().y == nourriture.y) {
                 snake.grow();
-                score ++;
+                score++;
+                if (score > ScoreManager::loadHighScore()) {
+                    ScoreManager::saveHighScore(score);
+                }
                 spawnfood();
             } else {
                 snake.move();

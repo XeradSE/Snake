@@ -19,7 +19,8 @@ endif ()
 add_executable(Snake ./src/main.cpp
                      ./src/Snake.cpp
                      ./src/Game.cpp
-        src/Menu.cpp
+                     ./src/ScoreManager.cpp
+                     ./src/Menu.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
