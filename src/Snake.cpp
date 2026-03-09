@@ -1,6 +1,5 @@
 #include "./../include/Snake.hpp"
 #include "raylib.h"
-#include <iostream>
 
 Snake::Snake() {
 

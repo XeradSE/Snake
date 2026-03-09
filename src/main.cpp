@@ -31,6 +31,7 @@ int main()
             game.getMenu().drawGameOver(game.getScore());
             if (game.getMenu().handleInput()) {
                 game.reset();
+                direction = {0, 0};
                 game.getMenu().setGameOver(false);
                 game.setIsRunning(true);
             } 

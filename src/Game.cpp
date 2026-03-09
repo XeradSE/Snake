@@ -81,5 +81,4 @@ void Game::checkCollisions() {
 void Game::reset() {
     score = 0;
     snake.reset();
-    snake.setDirection(Vector2{0, 0});
 }
