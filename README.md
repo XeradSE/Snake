@@ -1,10 +1,8 @@
-# Snake (WIP)
+# Snake
 
 A classic Snake game built in C++ with Raylib.
 
 ## Demo
-
-*Coming soon*
 
 ## Features
 
@@ -49,3 +47,4 @@ cmake --build .
 ## Author
 
 **Kylian Betuel** — [@XeradSE](https://github.com/XeradSE)
+

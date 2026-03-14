@@ -1,95 +1,97 @@
 #include "./../include/Game.hpp"
 #include "./../include/ScoreManager.hpp"
-#include <stdexcept>
+#include "raylib.h"
 #include <iostream>
+#include <stdexcept>
 
 void Game::update(Vector2 direction) {
 
-    try {
-        checkCollisions();
+  try {
+    checkCollisions();
 
-        if (is_running) {
+    if (is_running) {
 
-            float move_interval = 0.16; //0.16s -> 60fps
+      float move_interval = 0.16; // 0.16s -> 60fps
 
-            snake.setDirection(direction);
+      snake.setDirection(direction);
 
-            timer += GetFrameTime();
-            if (timer >= move_interval) {
-                timer = 0;
-                if (snake.getHead().x == nourriture.x && snake.getHead().y == nourriture.y) {
-                    snake.grow();
-                    score++;
-                    if (score > ScoreManager::loadHighScore()) {
-                        ScoreManager::saveHighScore(score);
-                    }
-                    spawnfood();
-                } else {
-                    snake.move();
-                }
-            }
+      timer += GetFrameTime();
+      if (timer >= move_interval) {
+        timer = 0;
+        if (snake.getHead().x == nourriture.x &&
+            snake.getHead().y == nourriture.y) {
+          snake.grow();
+          score++;
+          if (score > ScoreManager::loadHighScore()) {
+            ScoreManager::saveHighScore(score);
+          }
+          spawnfood();
         } else {
-            menu.setGameOver(true);
+          snake.move();
         }
-    } catch (const std::runtime_error& e) {
-        std::cerr << e.what() << std::endl;
+      }
+    } else {
+      menu.setGameOver(true);
     }
-    
+  } catch (const std::runtime_error &e) {
+    std::cerr << e.what() << std::endl;
+  }
 }
 
 void Game::draw() {
 
-    for (int i = 0; i < nb_cell_width; i++) {
-        for (int j = 0; j < nb_cell_height; j++) {
-            DrawRectangle(i*cell_size, j*cell_size, cell_size, cell_size, YELLOW);
-        }
+  for (int i = 0; i < nb_cell_width; i++) {
+    for (int j = 0; j < nb_cell_height; j++) {
+      DrawRectangle(i * cell_size, j * cell_size, cell_size, cell_size, YELLOW);
     }
+  }
 
-    DrawRectangle(nourriture.x*cell_size, nourriture.y*cell_size, cell_size, cell_size, RED);
+  DrawRectangle(nourriture.x * cell_size, nourriture.y * cell_size, cell_size,
+                cell_size, RED);
 
-    snake.draw();
-
+  snake.draw();
 }
 
 void Game::spawnfood() {
 
-    std::uniform_int_distribution<int> dist_x(0, nb_cell_width - 1);
-    std::uniform_int_distribution<int> dist_y(0, nb_cell_height - 1);
+  std::uniform_int_distribution<int> dist_x(0, nb_cell_width - 1);
+  std::uniform_int_distribution<int> dist_y(0, nb_cell_height - 1);
 
-    Vector2 temp;
-    bool cell_empty = false;
+  Vector2 temp;
+  bool cell_empty = false;
 
-    while (!cell_empty) {
-        cell_empty = true;
-        temp = {static_cast<float>(dist_x(rng)), static_cast<float>(dist_y(rng))};
-        for (const Vector2& v : snake.getSnakeBody()) {
-            if (v.x == temp.x && v.y == temp.y) {
-                cell_empty = false;
-                break;
-            }
-        }
+  while (!cell_empty) {
+    cell_empty = true;
+    temp = {static_cast<float>(dist_x(rng)), static_cast<float>(dist_y(rng))};
+    for (const Vector2 &v : snake.getSnakeBody()) {
+      if (v.x == temp.x && v.y == temp.y) {
+        cell_empty = false;
+        break;
+      }
     }
+  }
 
-    nourriture = temp;
-
+  nourriture = temp;
 }
 
 void Game::checkCollisions() {
 
-    if (snake.checkSelfCollision()) {
-        is_running = false;
-    } else {
-        is_running = true;
-    }
+  if (snake.checkSelfCollision()) {
+    is_running = false;
+  } else {
+    is_running = true;
+  }
 
-    if (is_running) {
-        if (snake.getHead().x >= nb_cell_height || snake.getHead().y >= nb_cell_width || snake.getHead().x < 0 || snake.getHead().y < 0) {
-            is_running = false;
-        }
+  if (is_running) {
+    if (snake.getHead().x >= nb_cell_height ||
+        snake.getHead().y >= nb_cell_width || snake.getHead().x < 0 ||
+        snake.getHead().y < 0) {
+      is_running = false;
     }
+  }
 }
 
 void Game::reset() {
-    score = 0;
-    snake.reset();
+  score = 0;
+  snake.reset();
 }
