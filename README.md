@@ -4,6 +4,8 @@ A classic Snake game built in C++ with Raylib.
 
 ## Demo
 
+https://github.com/user-attachments/assets/06f7dcb4-2b24-4e07-b3b7-20476fea0318
+
 ## Features
 
 - Classic Snake gameplay
